@@ -8,10 +8,10 @@ classes. Writing tests has never been so easy!
 
 ```scala
 import com.gu.mockless.Empty.auto._
-import com.gu.mockless.Empty.empty
+import com.gu.mockless.Empty.{empty => emptyInstance}
 
 object Book {
-  lazy val empty = empty[Book]
+  lazy val empty = emptyInstance[Book]
   
   assert(empty == Book(
     "",
