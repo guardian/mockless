@@ -1,6 +1,7 @@
 package com.gu.mockless
 
 import org.specs2.mutable.Specification
+import Empty.empty
 import Empty.auto._
 
 case class Author(
@@ -19,23 +20,23 @@ case class Book(
 class EmptySpec extends Specification {
   "Empty" should {
     "create a List" in {
-      Empty.instance[List[Int]] shouldEqual Nil
+      empty[List[Int]] shouldEqual Nil
     }
 
     "create a Seq" in {
-      Empty.instance[Seq[String]] shouldEqual Nil
+      empty[Seq[String]] shouldEqual Nil
     }
 
     "create a Map" in {
-      Empty.instance[Map[Int, String]] shouldEqual Map.empty
+      empty[Map[Int, String]] shouldEqual Map.empty
     }
 
     "create an Either" in {
-      Empty.instance[Either[Int, String]] shouldEqual Right("")
+      empty[Either[Int, String]] shouldEqual Right("")
     }
 
     "create an Author" in {
-      Empty.instance[Author] shouldEqual Author(
+      empty[Author] shouldEqual Author(
         "",
         None,
         ""
@@ -43,7 +44,7 @@ class EmptySpec extends Specification {
     }
 
     "create a Book" in {
-      Empty.instance[Book] shouldEqual Book(
+      empty[Book] shouldEqual Book(
         "",
         0,
         Nil,

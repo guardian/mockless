@@ -7,7 +7,7 @@ trait Empty[A] {
 }
 
 object Empty extends ProductTypeClassCompanion[Empty] {
-  def instance[A](implicit M: Empty[A]) = M.empty
+  def empty[A](implicit M: Empty[A]) = M.empty
 
   implicit val emptyInt = new Empty[Int] {
     override def empty: Int = 0
