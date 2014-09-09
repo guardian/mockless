@@ -11,8 +11,13 @@ name := "mockless"
 
 scalaVersion := "2.11.2"
 
+crossScalaVersions := Seq("2.10.4", "2.11.2")
+
 libraryDependencies ++= Seq(
-  "com.chuusai" %% "shapeless" % "2.0.0",
+  if (scalaVersion.value == "2.11.2")
+    "com.chuusai" %% s"shapeless" % "2.0.0"
+  else
+    "com.chuusai" % s"shapeless_${scalaVersion.value}" % "2.0.0",
   "org.specs2" %% "specs2" % "2.4.2" % "test"
 )
 
@@ -35,6 +40,8 @@ pomExtra := (
   )
 
 licenses := Seq("Apache V2" -> url("http://www.apache.org/licenses/LICENSE-2.0.html"))
+
+ReleaseKeys.crossBuild := true
 
 ReleaseKeys.releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
