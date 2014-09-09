@@ -27,5 +27,4 @@ case class Book(
   authors: List[Author],
   references: Map[String, String]
 )
-
 ```
